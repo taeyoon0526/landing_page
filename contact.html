@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연락처 - Taeyoon Kim</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <section id="contact">
+      <h2>연락처 및 외부 링크</h2>
+      <ul>
+        <li><strong>Email</strong>: <a href="mailto:taeyang7286@gmail.com">taeyang7286@gmail.com</a> (문의, 협업 제안 환영)</li>
+        <li><strong>GitHub</strong>: <a href="https://github.com/taeyoon0526" target="_blank" rel="noopener noreferrer">taeyoon0526</a> (프로젝트 소스 및 활동 내역)</li> 
+      </ul>
+      <p>이메일, GitHub를를 통해 언제든 연락주시면 빠르게 답변드리겠습니다.<br>
+      포트폴리오에 대한 피드백이나 협업 제안도 환영합니다!</p>
+      <a class="back-btn" href="index.html">메인으로 돌아가기</a>
+    </section>
+  </main>
+  <button id="langBtn" style="position:absolute;top:20px;right:20px;z-index:1000;"></button>
+  <script>
+    const content = {
+      ko: {
+        title: '연락처 및 외부 링크',
+        items: [
+          '<strong>Email</strong>: <a href="mailto:taeyang7286@gmail.com">taeyang7286@gmail.com</a> (문의, 협업 제안 환영)',
+          '<strong>GitHub</strong>: <a href="https://github.com/taeyoon0526" target="_blank" rel="noopener noreferrer">taeyoon0526</a> (프로젝트 소스 및 활동 내역)'
+        ],
+        desc: '이메일, GitHub, LinkedIn을 통해 언제든 연락주시면 빠르게 답변드리겠습니다.<br>포트폴리오에 대한 피드백이나 협업 제안도 환영합니다!',
+        back: '메인으로 돌아가기',
+        langBtn: 'ENGLISH'
+      },
+      en: {
+        title: 'Contact & Links',
+        items: [
+          '<strong>Email</strong>: <a href="mailto:taeyang7286@gmail.com">taeyang7286@gmail.com</a> (Contact & Collaboration welcome)',
+          '<strong>GitHub</strong>: <a href="https://github.com/taeyoon0526" target="_blank" rel="noopener noreferrer">taeyoon0526</a> (Project sources & activities)'
+        ],
+        desc: 'Feel free to contact me anytime via Email, GitHub, or LinkedIn. I will respond promptly.<br>Feedback on my portfolio or collaboration proposals are also welcome!',
+        back: 'Back to Main',
+        langBtn: '한국어'
+      }
+    };
+    let lang = localStorage.getItem('lang') || 'ko';
+    function render() {
+      document.querySelector('#contact h2').textContent = content[lang].title;
+      const ul = document.querySelector('#contact ul');
+      ul.innerHTML = '';
+      content[lang].items.forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = item;
+        ul.appendChild(li);
+      });
+      document.querySelector('#contact p').innerHTML = content[lang].desc;
+      document.querySelector('.back-btn').textContent = content[lang].back;
+      document.getElementById('langBtn').textContent = content[lang].langBtn;
+    }
+    document.getElementById('langBtn').onclick = function() {
+      lang = lang === 'ko' ? 'en' : 'ko';
+      localStorage.setItem('lang', lang);
+      render();
+    };
+    render();
+  </script>
+</body>
+</html> 

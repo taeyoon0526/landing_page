@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자기소개 - Taeyoon Kim</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <section id="intro">
+      <h1>안녕하세요, 김태윤입니다!</h1>
+      <p>저는 웹 프론트엔드 개발자 지망생으로, HTML, CSS, JavaScript를 중심으로 다양한 UI/UX 프로젝트를 경험했습니다.<br>
+      사용자 중심의 인터페이스와 반응형 웹에 관심이 많으며, 새로운 기술을 배우고 적용하는 것을 즐깁니다.<br>
+      <strong>관심 분야</strong>: 웹 접근성, 인터랙티브 UI, 퍼포먼스 최적화, 디자인 시스템 구축<br>
+      <strong>한 줄 소개</strong>: "코드로 세상을 더 편리하게 만드는 개발자, 김태윤입니다."
+      </p>
+      <a class="back-btn" href="index.html">메인으로 돌아가기</a>
+    </section>
+  </main>
+  <button id="langBtn" style="position:absolute;top:20px;right:20px;z-index:1000;"></button>
+  <script>
+    const content = {
+      ko: {
+        title: '안녕하세요, 김태윤입니다!',
+        desc: '저는 웹 프론트엔드 개발자 지망생으로, HTML, CSS, JavaScript를 중심으로 다양한 UI/UX 프로젝트를 경험했습니다.<br>사용자 중심의 인터페이스와 반응형 웹에 관심이 많으며, 새로운 기술을 배우고 적용하는 것을 즐깁니다.<br><strong>관심 분야</strong>: 웹 접근성, 인터랙티브 UI, 퍼포먼스 최적화, 디자인 시스템 구축<br><strong>한 줄 소개</strong>: "코드로 세상을 더 편리하게 만드는 개발자, 김태윤입니다."',
+        back: '메인으로 돌아가기',
+        langBtn: 'ENGLISH'
+      },
+      en: {
+        title: "Hello, I'm Taeyoon Kim!",
+        desc: "I'm an aspiring web frontend developer with experience in various UI/UX projects focused on HTML, CSS, and JavaScript.<br>I'm interested in user-centered interfaces and responsive web, and I enjoy learning and applying new technologies.<br><strong>Interests</strong>: Web Accessibility, Interactive UI, Performance Optimization, Design System<br><strong>One-liner</strong>: 'A developer who makes the world more convenient with code, I'm Taeyoon Kim.'",
+        back: 'Back to Main',
+        langBtn: '한국어'
+      }
+    };
+    let lang = localStorage.getItem('lang') || 'ko';
+    function render() {
+      document.querySelector('#intro h1').innerHTML = content[lang].title;
+      document.querySelector('#intro p').innerHTML = content[lang].desc;
+      document.querySelector('.back-btn').textContent = content[lang].back;
+      document.getElementById('langBtn').textContent = content[lang].langBtn;
+    }
+    document.getElementById('langBtn').onclick = function() {
+      lang = lang === 'ko' ? 'en' : 'ko';
+      localStorage.setItem('lang', lang);
+      render();
+    };
+    render();
+  </script>
+</body>
+</html> 
