@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taeyoon Kim Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav id="navbar">
+    <ul>
+      <li><a href="intro.html">자기소개</a></li>
+      <li><a href="skills.html">기술 스택</a></li>
+      <li><a href="contact.html">연락처</a></li>
+    </ul>
+    <button id="lang-toggle">ENGLISH</button>
+  </nav>
+  <main>
+    <section id="intro">
+      <h1>안녕하세요, 김태윤입니다!</h1>
+      <p>주요 경력, 관심 분야, 한 줄 소개 등 간단한 자기소개가 들어갑니다.</p>
+    </section>
+    <section id="skills">
+      <h2>기술 스택</h2>
+      <ul class="skills-list">
+        <li>JavaScript</li>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>React</li>
+        <li>Node.js</li>
+        <!-- 필요에 따라 추가 -->
+      </ul>
+    </section>
+    <section id="contact">
+      <h2>연락처 및 외부 링크</h2>
+      <ul>
+        <li>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></li>
+        <li>GitHub: <a href="https://github.com/your-github" target="_blank" rel="noopener noreferrer">your-github</a></li>
+        <li>LinkedIn: <a href="https://linkedin.com/in/your-linkedin" target="_blank" rel="noopener noreferrer">your-linkedin</a></li>
+      </ul>
+    </section>
+  </main>
+  <script src="main.js"></script>
+  <!-- Google Analytics (기본 템플릿, 추후 추적ID 입력 필요) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX'); // 실제 추적ID로 교체 필요
+  </script>
+</body>
+</html> 
